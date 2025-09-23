@@ -14,9 +14,11 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: winars1/nextjs-docker
+          image: ghcr.io/winars1/nextjs-docker:latest
           ports:
             - containerPort: 80
+      imagePullSecrets:
+        - name: ghcr-secret
 ---
 apiVersion: v1
 kind: Service
@@ -29,4 +31,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
+
 
